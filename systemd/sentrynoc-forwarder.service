@@ -1,0 +1,18 @@
+[Unit]
+Description=SentryNOC Core spool forwarder
+After=sentrynoc-agent.service sentrynoc-collector.service
+Requires=sentrynoc-agent.service
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/sentrynoc
+ExecStart=/usr/bin/python3 /opt/sentrynoc/collector/forward_spool.py
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/sentrynoc
+
+[Install]
+WantedBy=multi-user.target

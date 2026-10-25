@@ -1,0 +1,6 @@
+/sentrynoc-agent
+*.spool
+*.ndjson
+*.offset
+*.db
+__pycache__/
